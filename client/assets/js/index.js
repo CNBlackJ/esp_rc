@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Device
+  var address = '192.168.0.226'
+  var device = new Device(address)
+
   var s = function (sel) {
     return document.querySelector(sel)
   }
@@ -31,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   sId('body').onclick = createNipple
-  createNipple('dynamic')
 
   function bindNipple () {
     joystick.on('start end', function (evt, data) {
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
       debug(data)
     }).on('move', function (evt, data) {
       debug(data)
+      device.callFunction('move', JSON.stringify(data))
     }).on('dir:up plain:up dir:left plain:left dir:down ' +
         'plain:down dir:right plain:right',
         function (evt, data) {
@@ -51,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
   }
 
-  function createNipple (evt) {
+  function createNipple () {
     if (joystick) {
       joystick.destroy()
     }
     joystick = nipplejs.create({
       zone: s('.zone.dynamic'),
-      color: 'blue',
-      multitouch: true
+      // zone: document.getElementById('static'),
+      color: 'white'
     })
     bindNipple()
   }
@@ -92,5 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
       elDump.appendChild(newEvent)
       nbEvents += 1
     }, 0)
+  }
+
+  function calculatePosition (data) {
+
   }
 })
