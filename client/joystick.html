@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Joistick</title>
+	<script type="text/javascript" src="/assets/js/nipplejs.min.js"></script>
+	<script type="text/javascript" src="/assets/js/index.js"></script>
+	<link type="text/css" rel="stylesheet" href="/assets/css/index.css" />
+</head>
+<body id="body">
+	<div id="zone_joystick">
+		<div id="debug">
+			<ul>
+				<li class="position">
+					position :
+					<ul>
+						<li class="x">x : <span class='data'></span></li>
+						<li class="y">y : <span class='data'></span></li>
+					</ul>
+				</li>
+				<li class="force">force : <span class='data'></span></li>
+				<li class="pressure">pressure : <span class='data'></span></li>
+				<li class="distance">distance : <span class='data'></span></li>
+				<li class="angle">
+					angle :
+					<ul>
+						<li class="radian">radian : <span class='data'></span></li>
+						<li class="degree">degree : <span class='data'></span></li>
+					</ul>
+				</li>
+				<li class="direction">
+					direction :
+					<ul>
+						<li class="x">x : <span class='data'></span></li>
+						<li class="y">y : <span class='data'></span></li>
+						<li class="angle">angle : <span class='data'></span></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="dump"></div>
+		</div>
+		<div class="zone dynamic active"><h1>dynamic</h1></div>
+		<div class="zone semi"><h1>semi</h1></div>
+		<div class="zone static"><h1>static</h1></div>
+	</div>
+	<br/>
+</body>
+</html>
