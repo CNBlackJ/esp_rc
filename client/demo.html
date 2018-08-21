@@ -11,7 +11,7 @@
 		$( document ).ready(function() {
 
 	    // Device
-	    var address = "192.168.0.178";
+	    var address = "192.168.0.226";
 	    var device = new Device(address);
 
 	    // Buttons
@@ -41,6 +41,13 @@
 	    });
 	    $('#backward').mouseup(function() {
 	      device.callFunction("stop");
+	    });
+
+	    $('#jump').mousedown(function() {
+	      device.callFunction("jump");
+	    });
+	    $('#reset').mousedown(function() {
+	      device.callFunction("reset");
 	    });
 
 		});
@@ -89,6 +96,17 @@
 		    <button id='backward' class='btn btn-primary btn-block' type="button">后退</button>
 		  </div>
 			<div class="col-md-5 col-xs-5"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4 col-xs-4"></div>
+			<div class="col-md-2 col-xs-2">
+				<button id='jump' class='btn btn-primary btn-block' type="button">跳</button>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<button id='reset' class='btn btn-primary btn-block' type="button">复位</button>
+			</div>
+			<div class="col-md-4 col-xs-4"></div>
 		</div>
 	</div>
 </body>
