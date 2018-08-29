@@ -4,9 +4,12 @@
 	<meta charset=utf-8 />
 	<title>小车遥控器</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/css/bootstrap-slider.min.css">
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="https://cdn.rawgit.com/Foliotek/AjaxQ/master/ajaxq.js"></script>
 	<script type="text/javascript" src="https://cdn.rawgit.com/marcoschwartz/aREST.js/master/aREST.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/bootstrap-slider.min.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function() {
 
@@ -48,10 +51,27 @@
 	    });
 	    $('#reset').mousedown(function() {
 	      device.callFunction("reset");
-	    });
+			});
+
+			$('#servo_1').slider({
+				formatter: function(value) {
+					return 'Current value: ' + value;
+				}
+			});
+
+			$('#servo_2').slider({
+				formatter: function(value) {
+					return 'Current value: ' + value;
+				}
+			});
+
+			$('#servo_3').slider({
+				formatter: function(value) {
+					return 'Current value: ' + value;
+				}
+			});
 
 		});
-
 	</script>
 
 	<style type="text/css">
@@ -65,49 +85,90 @@
 
 		#slider {
 			margin-top: 7px;
-		    vertical-align:middle;
+			vertical-align:middle;
+		}
+
+
+		#servo_bg .slider-selection {
+			background: #BABABA;
 		}
 	</style>
 </head>
-<body>
-	<div class='container'>
-		<div class='row'>
-			<div class="col-md-5 col-xs-5"></div>
-		  <div class="col-md-2 col-xs-2">
-		    <button id='forward' class='btn btn-primary btn-block' type="button">前进</button>
-		  </div>
-			<div class="col-md-5 col-xs-5"></div>
-		</div>
+	<body>
+		<div class='container'>
+			<div class='row'>
+				<div class="col-md-5 col-xs-5"></div>
+				<div class="col-md-2 col-xs-2">
+					<button id='forward' class='btn btn-primary btn-block' type="button">前进</button>
+				</div>
+				<div class="col-md-5 col-xs-5"></div>
+			</div>
 
-		<div class='row'>
-			<div class="col-md-4 col-xs-4"></div>
-			<div class="col-md-2 col-xs-2">
-				<button id='left' class='btn btn-primary btn-block' type="button">左转</button>
+			<div class='row'>
+				<div class="col-md-4 col-xs-4"></div>
+				<div class="col-md-2 col-xs-2">
+					<button id='left' class='btn btn-primary btn-block' type="button">左转</button>
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<button id='right' class='btn btn-primary btn-block' type="button">右转</button>
+				</div>
+				<div class="col-md-4 col-xs-4"></div>
 			</div>
-			<div class="col-md-2 col-xs-2">
-				<button id='right' class='btn btn-primary btn-block' type="button">右转</button>
-			</div>
-			<div class="col-md-4 col-xs-4"></div>
-		</div>
 
-		<div class='row'>
-			<div class="col-md-5 col-xs-5"></div>
-		  <div class="col-md-2 col-xs-2">
-		    <button id='backward' class='btn btn-primary btn-block' type="button">后退</button>
-		  </div>
-			<div class="col-md-5 col-xs-5"></div>
-		</div>
+			<div class='row'>
+				<div class="col-md-5 col-xs-5"></div>
+				<div class="col-md-2 col-xs-2">
+					<button id='backward' class='btn btn-primary btn-block' type="button">后退</button>
+				</div>
+				<div class="col-md-5 col-xs-5"></div>
+			</div>
 
-		<div class="row">
-			<div class="col-md-4 col-xs-4"></div>
-			<div class="col-md-2 col-xs-2">
-				<button id='jump' class='btn btn-primary btn-block' type="button">跳</button>
+			<div class="row">
+				<div class="col-md-4 col-xs-4"></div>
+				<div class="col-md-2 col-xs-2">
+					<button id='jump' class='btn btn-primary btn-block' type="button">跳</button>
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<button id='reset' class='btn btn-primary btn-block' type="button">复位</button>
+				</div>
+				<div class="col-md-4 col-xs-4"></div>
 			</div>
-			<div class="col-md-2 col-xs-2">
-				<button id='reset' class='btn btn-primary btn-block' type="button">复位</button>
+
+			<div class="row">
+				<div class="col-md-4 col-xs-4">
+					servo_1: 
+					<input
+						id="servo_1" 
+						data-slider-id='servo_bg' 
+						type="text" data-slider-min="0" 
+						data-slider-max="180" 
+						data-slider-step="1" 
+						data-slider-value="90"
+					/>
+				</div>
+				<div class="col-md-4 col-xs-4">
+					servo_2: 
+					<input
+						id="servo_2" 
+						data-slider-id='servo_bg' 
+						type="text" data-slider-min="0" 
+						data-slider-max="180" 
+						data-slider-step="1" 
+						data-slider-value="90"
+					/>
+				</div>
+				<div class="col-md-4 col-xs-4">
+					servo_3: 
+					<input
+						id="servo_3" 
+						data-slider-id='servo_bg' 
+						type="text" data-slider-min="0" 
+						data-slider-max="180" 
+						data-slider-step="1" 
+						data-slider-value="90"
+					/>
+				</div>
 			</div>
-			<div class="col-md-4 col-xs-4"></div>
 		</div>
-	</div>
-</body>
+	</body>
 </html>
