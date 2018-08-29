@@ -50,26 +50,29 @@
 	      device.callFunction("jump");
 	    });
 	    $('#reset').mousedown(function() {
-	      device.callFunction("reset");
+				device.callFunction("resetServo");
 			});
+
+			$('#servo_0').slider({
+				formatter: function(value) { return 'Current value: ' + value; }
+			}).on('change', function(options){
+				const newValue = options.value.newValue
+				device.callFunction("adjustServo0", newValue);
+			})
 
 			$('#servo_1').slider({
-				formatter: function(value) {
-					return 'Current value: ' + value;
-				}
-			});
+				formatter: function(value) { return 'Current value: ' + value; }
+			}).on('change', function(options){
+				const newValue = options.value.newValue
+				device.callFunction("adjustServo1", newValue);
+			})
 
 			$('#servo_2').slider({
-				formatter: function(value) {
-					return 'Current value: ' + value;
-				}
-			});
-
-			$('#servo_3').slider({
-				formatter: function(value) {
-					return 'Current value: ' + value;
-				}
-			});
+				formatter: function(value) { return 'Current value: ' + value; }
+			}).on('change', function(options){
+				const newValue = options.value.newValue
+				device.callFunction("adjustServo2", newValue);
+			})
 
 		});
 	</script>
@@ -136,6 +139,17 @@
 
 			<div class="row">
 				<div class="col-md-4 col-xs-4">
+					servo_0: 
+					<input
+						id="servo_0" 
+						data-slider-id='servo_bg' 
+						type="text" data-slider-min="0" 
+						data-slider-max="180" 
+						data-slider-step="1" 
+						data-slider-value="90"
+					/>
+				</div>
+				<div class="col-md-4 col-xs-4">
 					servo_1: 
 					<input
 						id="servo_1" 
@@ -150,17 +164,6 @@
 					servo_2: 
 					<input
 						id="servo_2" 
-						data-slider-id='servo_bg' 
-						type="text" data-slider-min="0" 
-						data-slider-max="180" 
-						data-slider-step="1" 
-						data-slider-value="90"
-					/>
-				</div>
-				<div class="col-md-4 col-xs-4">
-					servo_3: 
-					<input
-						id="servo_3" 
 						data-slider-id='servo_bg' 
 						type="text" data-slider-min="0" 
 						data-slider-max="180" 
