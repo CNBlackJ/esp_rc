@@ -12,6 +12,6 @@ app.get('/joystick', (req, res) => {
 
 app.use('/assets', express.static(path.join(__dirname, '../client/assets')))
 
-app.listen(3000, () => {
-  console.log('app listening: http://localhost:3000')
+app.listen(4000, () => {
+  console.log('app listening: http://localhost:4000')
 })
