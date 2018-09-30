@@ -74,6 +74,15 @@
 				device.callFunction("adjustServo2", newValue);
 			})
 
+			$('#setAngle').click((e) => {
+				const minVal = $('#minAngle').val()
+				const maxVal = $('#maxAngle').val()
+				const isLoop = $('#isLoop').val()
+				device.callFunction("setMinAngle", minVal);
+				device.callFunction("setMaxAngle", maxVal);
+				device.callFunction("setIsLoop", isLoop);
+			})
+
 		});
 	</script>
 
@@ -170,6 +179,30 @@
 						data-slider-step="1" 
 						data-slider-value="90"
 					/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="row">
+						<span>minAngle: </span>
+						<input id="minAngle" type="text" placeholder="minAngle">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<span>maxAngle: </span>
+						<input id="maxAngle" type="text" placeholder="maxAngle">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<label class="checkbox-inline" style="padding: 0 10px;">
+							isLoop: 
+							<input id="isLoop" type="radio" value="false">
+						</label>
+						<button id="setAngle" class="btn-info">submit</button>
+					</div>
 				</div>
 			</div>
 		</div>
